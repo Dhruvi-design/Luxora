@@ -1,16 +1,16 @@
+@use '../base/variables'as *;
+@use '../base/fonts'as *;
 
-@use '../base/variables' as *;
-
-// Header Styles
+// =================== HEADER STYLES ===================
 .header {
-    position: sticky;
-    width: 100%;
+    position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
     background: transparent;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     z-index: 1000;
-    padding: 20px 30px;
+    padding: 36px 60px 38px;
 
     .nav {
         display: flex;
@@ -18,9 +18,10 @@
         align-items: center;
         position: relative;
 
-        .nav-left {
+        &-left {
             display: flex;
-            gap: 20px;
+            gap: 32px;
+
             a {
                 color: black;
                 text-decoration: none;
@@ -34,60 +35,34 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
+
             img {
                 width: 120px;
             }
         }
 
-        .nav-right {
+        &-right {
             display: flex;
             gap: 34px;
             align-items: center;
-            .icon {
-                width: 24px;
-                cursor: pointer;
-            }
-
-            .hamburger {
-                font-size: 28px;
-                color: black;
-                cursor: pointer;
-                display: none; // Hide by default
-            }
         }
+    }
+
+    &.scrolled {
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     }
 }
 
-// Change Header Background on Scroll
-.header.scrolled {
-    backdrop-filter: blur(40px);
-    background: rgba(255, 255, 255, 0.6);
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-// Hero Section with Parallax Effect
-.hero {
-    height: 100vh;
-    background: url('../../assets/images/hero_banner.png') center/cover no-repeat;
-    background-attachment: fixed;
-    position: relative;
-}
-
-// Mobile Navigation Styles
-.menu-checkbox {
-    display: none;
-}
-
+// =================== MOBILE NAVIGATION ===================
 .mobile-nav {
     position: fixed;
     top: 0;
     left: -100%;
     width: 80%;
     height: 100vh;
-    background: $secondary-color;
-    transition: left 0.3s ease-in-out;
+    background: white;
+    transition: transform 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
     padding: 30px;
@@ -95,96 +70,195 @@
 
     .close-btn {
         font-size: 30px;
-        color: $primary-color;
+        color: black;
         background: none;
         border: none;
         align-self: flex-start;
         cursor: pointer;
     }
 
-    .mobile-menu {
-        list-style: none;
-        margin-top: 40px;
-        li {
-            margin: 20px 0;
-            a {
-                text-decoration: none;
-                color: $primary-color;
-                font-size: 22px;
-                font-weight: bold;
+}
+
+// Show mobile menu when active
+.mobile-nav.open {
+    transform: translateX(100%);
+}
+
+.mobile-header {
+    display: none;
+}
+
+
+
+// =================== RESPONSIVE DESIGN ===================
+@media (max-width: 768px) {
+    .nav {
+        padding: 15px 20px;
+        position: relative;
+        z-index: 1000;
+    }
+
+    // Hamburger Menu
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        width: 30px;
+        height: 24px;
+        position: relative;
+        z-index: 1001;
+
+        span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: black;
+            transition: 0.3s ease-in-out;
+        }
+
+        &.active {
+            span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            span:nth-child(2) {
+                opacity: 0;
+            }
+
+            span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
             }
         }
     }
 
-    .mobile-footer {
-        position: absolute;
-        bottom: 30px;
+    // Hide Logo & Cart Icon When Menu is Open
+    .logo.hide,
+    .carticon.hide,
+    .desktop-header {
+        display: none;
+    }
+
+    // Mobile Navigation
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: #FAF6F2;
         display: flex;
-        gap: 20px;
-        .icon {
-            width: 28px;
-        }
-    }
-}
-
-#menu-toggle:checked ~ .mobile-nav {
-    left: 0;
-}
-
-// Show hamburger on mobile devices
-@media (max-width: 768px) {
-    .nav-left {
-        display: none;
+        flex-direction: column;
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
     }
 
-    .logo {
-        flex: 1;
-    }
-
-    .nav-right {
-        display: none;
-    }
-
-    .hamburger {
+    .mobile-header {
         display: block;
     }
+    
 
-    .hero {
-        background-attachment: scroll;
+    .mobile-nav.open {
+        transform: translateX(100%);
     }
+
+    // Mobile Menu Links
+    .mobile-menu {
+        list-style: none;
+        padding: 0;
+        margin-bottom: auto;
+        margin-top: 60px;
+
+        li {
+            margin: 20px 0;
+
+            a {
+                text-decoration: none;
+                font-family: 'NewYork';
+                font-size: 32px;
+                line-height: 36px;
+                font-weight: $font-regular;
+                color: #000;
+            }
+        }
+    }
+    
+    // Bottom Icons (Search & Account)
+    .mobile-footer {
+        position: absolute;
+        bottom: 40px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 40px;
+
+        .icon {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: black;
+            cursor: pointer;
+        }
+    }
+
+    .bottom-menu {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background: #FAF6F2; // Light beige background
+        padding: 15px 0;
+        border-top: 1px solid #D3D3D3; // Thin top border
+        width: 100%;
+    
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            color: #000; // Text color
+            font-weight: 500;
+            padding: 0 15px; // Spacing around icons & text
+        }
+    
+        .divider {
+            width: 1px;
+            height: 20px;
+            background: #A0A0A0; // Divider color
+            margin: 0 15px;
+        }
+    }
+    
+
+
 }
 
-@media (min-width: 769px) {
-    .hamburger {
-        display: none;
-    }
-}
-
-
-
-
-.carousel-container {
-    width: 100vw;
-    overflow: hidden;
+// Hero Section with Parallax Effect
+.hero {
+    min-height: 149vh;
+    background: url('../../assets/images/hero_banner.jpg') center/cover no-repeat;
+    background-attachment: fixed;
     position: relative;
-    display: flex;
-    align-items: center;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2);
+    }
 }
 
-.carousel {
-    display: flex;
-    width: max-content;
-    animation: infiniteScroll 10s linear infinite;
-}
+// Variables
+$img-width: 202px;
+$img-height: 48px;
+$gap: 80px;
+$animation-speed: 20s;
 
-.carousel img {
-    width: 202px;
-    height: fit-content;
-    object-fit: cover;
-    margin: 10px;
-}
-
-@keyframes infiniteScroll {
+// Keyframe animation (Scrolling left to right continuously)
+@keyframes scroll-right {
     from {
         transform: translateX(-50%);
     }
@@ -193,5 +267,50 @@
     }
 }
 
+// Slider container
+.slider {
+    width: 100%; // Full width of the screen
+    height: $img-height;
+    overflow: hidden;
+    background: white;
+    display: flex;
+    align-items: center;
+    position: relative;
 
+    // Track that moves continuously
+    .slide-track {
+        display: flex;
+        gap: $gap; // 80px gap between images
+        width: calc((#{$img-width} + #{$gap}) * 12); // Adjust based on image count
+        animation: scroll-right $animation-speed linear infinite;
+    }
+
+    // Individual slide styling
+    .slide {
+        width: $img-width;
+        height: $img-height;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    // Image styling
+    img {
+        width: $img-width;
+        height: $img-height;
+        object-fit: contain;
+    }
+}
+
+// Responsive (Ensuring no white space at any screen size)
+@media (max-width: 768px) {
+    .slider {
+        height: $img-height;
+    }
+
+    .slide-track {
+        width: calc((#{$img-width} + #{$gap}) * 12);
+        animation-duration: 15s; // Speed up animation for smaller screens
+    }
+}
 

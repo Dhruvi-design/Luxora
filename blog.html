@@ -7,123 +7,141 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Blog Page</title>
     <link rel="stylesheet" href="scss/main.css">
-    <style>
-        .blog-header {
-            text-align: center;
-            background: #fbe9e7;
-            padding: 20px;
-            background: transparent;
-        }
-       
-        .social-icons span {
-            margin: 0 10px;
-            cursor: pointer;
-        }
-
-        img {
-            width: 100%;
-        }
-
-        .news-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        .news-item img {
-            width: 80px;
-            height: 80px;
-            margin-right: 10px;
-        }
-     
-    </style>
 </head>
+
 <body>
-     <!-- Header Section -->
-     <div class="container">
-        <header class="header">
-            <nav class="nav">
-                <div class="nav-left">
-                    <a href="index.html">Home</a>
-                    <a href="#">About</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="#">Contact Us</a>
-                </div>
+    <!-- Header Section -->
+    <header class="header desktop-header">
+        <nav class="nav">
+            <!-- Left Navigation -->
+            <div class="nav-left">
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="blog.html">Blog</a>
+                <a href="#footer">Contact Us</a>
+            </div>
 
-                <!-- Center Logo -->
-                <div class="logo">
-                    <a href="#">
-                        <img src="assets/images/logo/Luxora.png" alt="Logo">
-                    </a>
-                </div>
+            <!-- Center Logo -->
+            <div class="logo">
+                <a href="#">
+                    <img src="assets/images/logo/Luxora.png" alt="Luxora Logo">
+                </a>
+            </div>
 
-                <!-- Right Icons -->
-                <div class="nav-right">
-                    <div class="searchicon"></div>
-                    <div class="usericon"></div>
-                    <div class="carticon"></div>
-                    <!-- Mobile Hamburger Menu -->
-                    <label for="menu-toggle" class="hamburger">&#9776;</label>
-                </div>
-            </nav>
-        </header>
+            <!-- Right Icons -->
+            <div class="nav-right">
+                <div class="searchicon"></div>
+                <div class="usericon"></div>
+                <div class="carticon"></div>
+                <label for="menu-toggle" class="hamburger"></label>
+            </div>
+        </nav>
+    </header>
 
-        <!-- Mobile Sidebar Menu -->
-        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-        <div class="mobile-nav">
-            <label for="menu-toggle" class="close-btn">&#10005;</label>
-            <ul class="mobile-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-            <div class="mobile-footer">
-                <div class="searchicon"> Search </div>
-                <div class="usericon"> USer</div>
+    <!-- Mobile Header -->
+    <header class="header mobile-header ">
+        <nav class="nav">
+            <!-- Hamburger Menu (Toggles with JS) -->
+            <div class="hamburger" id="menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Logo (Hidden when menu opens) -->
+            <div class="logo" id="logo">
+                <a href="#">
+                    <img src="assets/images/logo/Luxora.png" alt="Luxora Logo">
+                </a>
+            </div>
+
+            <!-- Cart Icon (Hidden when menu opens) -->
+            <div class="carticon" id="cart-icon"></div>
+        </nav>
+    </header>
+
+    <!-- Mobile Sidebar Menu -->
+    <div class="mobile-nav" id="mobile-menu">
+        <ul class="mobile-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#footer">Contact Us</a></li>
+        </ul>
+
+        <!-- Bottom Icons (Search & Account) -->
+        <div class="bottom-menu">
+            <div class="menu-item">
+                <span class="searchicon"></span>
+                <span class="label">Search</span>
+            </div>
+            <div class="divider"></div>
+            <div class="menu-item">
+                <span class="usericon"></span>
+                <span class="label">Account</span>
             </div>
         </div>
+
     </div>
+
     <div class="blog-container">
         <header class="blog-header">
             <h1>The Power of Pink: Celebrity Style Inspo from Our Favorite Icons</h1>
-            <p>By Jane Doe | Published: Apr 25, 2024 2:19 PM EDT</p>
+            <p class="publisher-details">By Jane Doe | Published: Apr 25, 2024 2:19 PM EDT</p>
             <div class="social-icons">
-                <span>📸</span> <span>📘</span> <span>✖</span>
+                <span class="instragramicon"></span> <span class="facebookicon"></span> <span
+                    class="twittericon"></span>
             </div>
         </header>
         <div>
             <img class="main-banner" src="assets/images/blog_banner.png" alt="Main Blog Image">
         </div>
         <section class="blog-content ">
-            <p>When it comes to making bold fashion statements, there’s one color that never fails to turn heads: pink. From soft pastels to vibrant fuchsias, pink has been making waves on red carpets, runways, and Instagram feeds worldwide. This week, we’re diving into how our favorite celebrities are redefining the ultimate power color.</p>
-            
+            <p>When it comes to making bold fashion statements, there’s one color that never fails to turn heads: pink.
+                From soft pastels to vibrant fuchsias, pink has been making waves on red carpets, runways, and Instagram
+                feeds worldwide. This week, we’re diving into how our favorite celebrities are redefining the ultimate
+                power color.</p>
+
             <h3 class="medium-text-bold">Paris Hilton’s Double Pink Moment</h3>
-            <p>The iconic Paris Hilton reminded us why she’s forever a trendsetter. Spotted at a recent event, Paris stunned in two show-stopping hot pink ensembles. The first was a sleek satin mini dress with dramatic puffed sleeves—a nod to old Hollywood glamour, paired with glittering diamond accessories and her signature blonde waves. The second? A daring, high-slit gown with rhinestone embellishments that caught every flash of paparazzi light. It’s classic Paris: bold, beautiful, and unapologetically pink.</p>
-    
+            <p>The iconic Paris Hilton reminded us why she’s forever a trendsetter. Spotted at a recent event, Paris
+                stunned in two show-stopping hot pink ensembles. The first was a sleek satin mini dress with dramatic
+                puffed sleeves—a nod to old Hollywood glamour, paired with glittering diamond accessories and her
+                signature blonde waves. The second? A daring, high-slit gown with rhinestone embellishments that caught
+                every flash of paparazzi light. It’s classic Paris: bold, beautiful, and unapologetically pink.</p>
+
             <h3 class="medium-text-bold">How to Channel Your Inner Paris</h3>
             <p>Want to bring some Hilton-worthy glam into your wardrobe? Here’s how:</p>
             <br>
             <ol>
-                <li>Go Monochrome: Don’t shy away from an all-pink look. Mixing textures like satin, tulle, and sequins can add dimension and keep it chic.</li>
-                <li>Statement Accessories: Think crystal chokers, oversized sunglasses, and metallic heels. The right accessories can elevate any outfit.</li>
-                <li>Confidence is Key: Paris Hilton’s greatest accessory? Confidence. Whether you’re rocking hot pink or any other bold hue, wear it like you own it.</li>
+                <li>Go Monochrome: Don’t shy away from an all-pink look. Mixing textures like satin, tulle, and sequins
+                    can add dimension and keep it chic.</li>
+                <li>Statement Accessories: Think crystal chokers, oversized sunglasses, and metallic heels. The right
+                    accessories can elevate any outfit.</li>
+                <li>Confidence is Key: Paris Hilton’s greatest accessory? Confidence. Whether you’re rocking hot pink or
+                    any other bold hue, wear it like you own it.</li>
             </ol>
-    
+
             <h3 class="medium-text-bold">Other Celebs Making Pink Pop</h3>
             <ul>
-                <li>Zendaya: The fashion icon wowed in a bubblegum pink power suit at a recent premiere, complete with sharp tailoring and a sleek ponytail.</li>
-                <li>Rihanna: Always ahead of the curve, RiRi was spotted in a pastel pink feathered dress from her own Fenty collection, proving that pink can be edgy and ethereal.</li>
-                <li>Timothée Chalamet: Breaking barriers in menswear, Timothée rocked a blush pink tuxedo at the Oscars, showing that pink isn’t just for the ladies.</li>
+                <li>Zendaya: The fashion icon wowed in a bubblegum pink power suit at a recent premiere, complete with
+                    sharp tailoring and a sleek ponytail.</li>
+                <li>Rihanna: Always ahead of the curve, RiRi was spotted in a pastel pink feathered dress from her own
+                    Fenty collection, proving that pink can be edgy and ethereal.</li>
+                <li>Timothée Chalamet: Breaking barriers in menswear, Timothée rocked a blush pink tuxedo at the Oscars,
+                    showing that pink isn’t just for the ladies.</li>
             </ul>
         </section>
-    <div>
-        <img class="blog_banner_main" src="assets/images/blog_banner_main.png" alt="Main Blog Image">
-    </div>
+        <div>
+            <img class="blog_banner_main" src="assets/images/blog_banner_main.png" alt="Main Blog Image">
+        </div>
         <section class="why-pink">
             <h3 class="medium-text-bold">Why Pink Is Here to Stay</h3>
-            <p>Pink isn’t just a color—it’s a mood, a statement, and a celebration of individuality. Whether you’re channeling Barbiecore vibes or keeping it subtle, there’s a shade of pink for everyone. As the fashion world continues to embrace gender-neutral palettes and bold self-expression, pink remains a timeless choice.</p>
+            <p>Pink isn’t just a color—it’s a mood, a statement, and a celebration of individuality. Whether you’re
+                channeling Barbiecore vibes or keeping it subtle, there’s a shade of pink for everyone. As the fashion
+                world continues to embrace gender-neutral palettes and bold self-expression, pink remains a timeless
+                choice.</p>
             <button>Shop the Look</button>
-    
+
             <p>Ready to add some pink power to your wardrobe? Check out our latest collection featuring:</p>
             <br>
             <ul>
@@ -132,7 +150,7 @@
                 <li>Crystal-studded heels and bags to complete your look.</li>
             </ul>
         </section>
-    
+
         <article class="latest-news">
             <h2 class="latest-news-title">Latest News</h2>
             <div class="news-item">
@@ -159,11 +177,9 @@
         </article>
     </div>
 
-    
-
-    
+    <!-- footer section -->
     <footer class="container">
-        <div class="footer-container">
+        <div id="footer">
             <div class="newsletter">
                 <h5>Subscribe To Our Newsletter</h5>
                 <div class="subscribe-box">
@@ -171,9 +187,8 @@
                     <button>→</button>
                 </div>
                 <div class="social-icons">
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-x-twitter"></i>
+                    <span class="instragramicon"></span> <span class="facebookicon"></span> <span
+                        class="twittericon"></span>
                 </div>
             </div>
 
@@ -207,8 +222,12 @@
                     <img src="assets/images/logo/Luxora.png" alt="Logo">
                 </a>
             </div>
-            <p class="copyright">© 2025-2026. All Rights Reserved</p>
+            <p class="copyright">© 2025-2026 | All Rights Reserved</p>
         </div>
     </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
 </body>
+
 </html>

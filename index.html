@@ -12,72 +12,103 @@
 <body>
 
     <!-- Header Section -->
-    <div class="container">
-        <header class="header">
-            <nav class="nav">
-                <div class="nav-left">
-                    <a href="index.html">Home</a>
-                    <a href="#">About</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="#">Contact Us</a>
-                </div>
+    <header class="header desktop-header">
+        <nav class="nav">
+            <!-- Left Navigation -->
+            <div class="nav-left">
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="blog.html">Blog</a>
+                <a href="#footer">Contact Us</a>
+            </div>
 
-                <!-- Center Logo -->
-                <div class="logo">
-                    <a href="#">
-                        <img src="assets/images/logo/Luxora.png" alt="Logo">
-                    </a>
-                </div>
+            <!-- Center Logo -->
+            <div class="logo">
+                <a href="#">
+                    <img src="assets/images/logo/Luxora.png" alt="Luxora Logo">
+                </a>
+            </div>
 
-                <!-- Right Icons -->
-                <div class="nav-right">
-                    <div class="searchicon"></div>
-                    <div class="usericon"></div>
-                    <div class="carticon"></div>
-                    <!-- Mobile Hamburger Menu -->
-                    <label for="menu-toggle" class="hamburger">&#9776;</label>
-                </div>
-            </nav>
-        </header>
+            <!-- Right Icons -->
+            <div class="nav-right">
+                <div class="searchicon"></div>
+                <div class="usericon"></div>
+                <div class="carticon"></div>
+            </div>
+        </nav>
+    </header>
 
-        <!-- Mobile Sidebar Menu -->
-        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-        <div class="mobile-nav">
-            <label for="menu-toggle" class="close-btn">&#10005;</label>
-            <ul class="mobile-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-            <div class="mobile-footer">
-                <div class="searchicon"> Search </div>
-                <div class="usericon"> USer</div>
+    <!-- Mobile Header -->
+    <header class="header mobile-header ">
+        <nav class="nav">
+            <!-- Hamburger Menu (Toggles with JS) -->
+            <div class="hamburger" id="menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Logo (Hidden when menu opens) -->
+            <div class="logo" id="logo">
+                <a href="#">
+                    <img src="assets/images/logo/Luxora.png" alt="Luxora Logo">
+                </a>
+            </div>
+
+            <!-- Cart Icon (Hidden when menu opens) -->
+            <div class="carticon" id="cart-icon"></div>
+        </nav>
+    </header>
+
+    <!-- Mobile Sidebar Menu -->
+    <div class="mobile-nav" id="mobile-menu">
+        <ul class="mobile-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#footer">Contact Us</a></li>
+        </ul>
+
+        <!-- Bottom Icons (Search & Account) -->
+        <div class="bottom-menu">
+            <div class="menu-item">
+                <span class="searchicon"></span>
+                <span class="label">Search</span>
+            </div>
+            <div class="divider"></div>
+            <div class="menu-item">
+                <span class="usericon"></span>
+                <span class="label">Account</span>
             </div>
         </div>
+
     </div>
 
-
     <!-- Hero Section with Parallax Effect -->
-    <section class="hero container"></section>
+    <section class="hero"></section>
 
-    <!-- <div class="carousel-container container">
-        <div class="carousel">
-            <img src="assets/images/7.png" alt="Image 1">
-            <img src="assets/images/8.png" alt="Image 2">
-            <img src="assets/images/9.png" alt="Image 3">
-            <img src="assets/images/10.png" alt="Image 4">
-            <img src="assets/images/11.png" alt="Image 5">
-            <img src="assets/images/7.png" alt="Image 1">
-            <img src="assets/images/8.png" alt="Image 2">
-            <img src="assets/images/9.png" alt="Image 3">
-            <img src="assets/images/10.png" alt="Image 4">
-            <img src="assets/images/11.png" alt="Image 5">
+    <div class="slider">
+        <div class="slide-track">
+            <div class="slide"><img src="assets/images/7.png" alt="Image 1"></div>
+            <div class="slide"><img src="assets/images/8.png" alt="Image 2"></div>
+            <div class="slide"><img src="assets/images/9.png" alt="Image 3"></div>
+            <div class="slide"><img src="assets/images/10.png" alt="Image 4"></div>
+            <div class="slide"><img src="assets/images/11.png" alt="Image 5"></div>
+            <div class="slide"><img src="assets/images/7.png" alt="Image 6"></div>
+            <div class="slide"><img src="assets/images/8.png" alt="Image 7"></div>
+    
+            <!-- Duplicate images to ensure infinite scroll effect -->
+            <div class="slide"><img src="assets/images/9.png" alt="Image 8"></div>
+            <div class="slide"><img src="assets/images/10.png" alt="Image 9"></div>
+            <div class="slide"><img src="assets/images/11.png" alt="Image 10"></div>
+            <div class="slide"><img src="assets/images/7.png" alt="Image 11"></div>
+            <div class="slide"><img src="assets/images/8.png" alt="Image 12"></div>
         </div>
-    </div> -->
+    </div>
+    
     <!-- Content Section -->
     <section class="content container">
-        <div class="about">
+        <div id="about">
             <h2 class="about-title">About Luxora</h2>
             <div class="about-banner">
                 <p>
@@ -94,14 +125,18 @@
 
     <!-- video -->
     <section class="video-banner">
-        <video width="552" controls autoplay muted disablePictureInPicture controlsList="nodownload"
-  poster="https://peach.blender.org/wp-content/uploads/bbb-splash.png?x81236" >
-  <source
-    src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-    type="video/mp4">
-</video>
+        <div class="video-container">
+            <video id="banner-video" muted disablePictureInPicture controlsList="nodownload" poster="https://peach.blender.org/wp-content/uploads/bbb-splash.png?x81236">
+                <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+            </video>
+    
+            <!-- Play Button Overlay -->
+            <div class="play-button" id="play-button">
+                ▶
+            </div>
+        </div>
     </section>
-
+    
     <!-- Photo Grid -->
     <section class="container">
         <div class="gallery">
@@ -147,7 +182,7 @@
                         <source srcset="assets/images/Card7.png" media="(min-width: 769px)">
                         <img src="assets/images/Card7.png" alt="Dress">
                     </picture>
-                    
+
                     <div class="overlay">
                         <h1>Jumpsuits</h1>
                     </div>
@@ -175,9 +210,9 @@
         </div>
     </section>
 
-
+    <!-- footer section -->
     <footer class="container">
-        <div class="footer-container">
+        <div id="footer">
             <div class="newsletter">
                 <h5>Subscribe To Our Newsletter</h5>
                 <div class="subscribe-box">
@@ -185,9 +220,8 @@
                     <button>→</button>
                 </div>
                 <div class="social-icons">
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-x-twitter"></i>
+                    <span class="instragramicon"></span> <span class="facebookicon"></span> <span
+                        class="twittericon"></span>
                 </div>
             </div>
 
@@ -221,22 +255,12 @@
                     <img src="assets/images/logo/Luxora.png" alt="Logo">
                 </a>
             </div>
-            <p class="copyright">© 2025-2026. All Rights Reserved</p>
+            <p class="copyright">© 2025-2026 | All Rights Reserved</p>
         </div>
     </footer>
 
     <!-- JS Script for Scroll Event -->
     <script>
-        // navbar
-        window.addEventListener("scroll", function () {
-            const header = document.querySelector(".header");
-            if (window.scrollY > 50) {
-                header.classList.add("scrolled");
-            } else {
-                header.classList.remove("scrolled");
-            }
-        });
-
         // journal js
         document.addEventListener("DOMContentLoaded", function () {
             const container = document.querySelector(".journal-container");
@@ -257,6 +281,9 @@
             });
         });
     </script>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
 
 </body>
 
