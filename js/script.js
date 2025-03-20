@@ -29,3 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
         video.play(); // Play video
     });
 });
+
+
+
+
+
+
+
