@@ -86,7 +86,7 @@
     </div>
 
     <div class="blog-container">
-        <header class="blog-header">
+        <section class="blog-header">
             <h1>The Power of Pink: Celebrity Style Inspo from Our Favorite Icons</h1>
             <p class="publisher-details">By Jane Doe | Published: Apr 25, 2024 2:19 PM EDT</p>
             <div class="social-icons">
@@ -100,7 +100,7 @@
                     <span class="twittericon"></span>
                 </a>
             </div>
-        </header>
+        </section>
         <div>
             <img class="main-banner" src="assets/images/blog_banner.png" alt="Main Blog Image">
         </div>
@@ -243,32 +243,6 @@
 
     <!-- JavaScript -->
     <script src="js/script.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const fadeElements = document.querySelectorAll(".fade-in");
-
-            const observer = new IntersectionObserver(
-                (entries, observer) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("in-view");
-                            observer.unobserve(entry.target); // Stop observing once visible
-                        }
-                    });
-                }, {
-                    threshold: 0.2
-                } // Trigger when 20% of the element is visible
-            );
-
-            // Observe all fade-in elements
-            fadeElements.forEach((el) => observer.observe(el));
-
-            // Fallback: If IntersectionObserver is not supported
-            if (!("IntersectionObserver" in window)) {
-                fadeElements.forEach((el) => el.classList.add("in-view"));
-            }
-        });
-    </script>
 </body>
 
 </html>
