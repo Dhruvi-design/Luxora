@@ -16,7 +16,8 @@
             <!-- Left Navigation -->
             <div class="nav-left">
                 <a href="index.html">Home</a>
-                <a href="#about">About</a>
+                <!-- / refers to the Home Page & #about scrolls to the section with the ID about on the Home Page. -->
+                <a href="/#about">About</a>
                 <a href="blog.html">Blog</a>
                 <a href="#footer">Contact Us</a>
             </div>
@@ -50,7 +51,7 @@
 
             <!-- Logo (Hidden when menu opens) -->
             <div class="logo" id="logo">
-                <a href="#">
+                <a href="index.html">
                     <img src="assets/images/logo/Luxora.png" alt="Luxora Logo">
                 </a>
             </div>
@@ -64,7 +65,7 @@
     <div class="mobile-nav" id="mobile-menu">
         <ul class="mobile-menu">
             <li><a href="index.html">Home</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="/#about">About</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="#footer">Contact Us</a></li>
         </ul>
@@ -89,8 +90,15 @@
             <h1>The Power of Pink: Celebrity Style Inspo from Our Favorite Icons</h1>
             <p class="publisher-details">By Jane Doe | Published: Apr 25, 2024 2:19 PM EDT</p>
             <div class="social-icons">
-                <span class="instragramicon"></span> <span class="facebookicon"></span> <span
-                    class="twittericon"></span>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <span class="instragramicon"></span>
+                </a>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <span class="facebookicon"></span>
+                </a>
+                <a href="https://x.com/i/flow/login" target="_blank">
+                    <span class="twittericon"></span>
+                </a>
             </div>
         </header>
         <div>
@@ -187,8 +195,15 @@
                     <button>→</button>
                 </div>
                 <div class="social-icons">
-                    <span class="instragramicon"></span> <span class="facebookicon"></span> <span
-                        class="twittericon"></span>
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <span class="instragramicon"></span>
+                    </a>
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <span class="facebookicon"></span>
+                    </a>
+                    <a href="https://x.com/i/flow/login" target="_blank">
+                        <span class="twittericon"></span>
+                    </a>
                 </div>
             </div>
 
@@ -218,7 +233,7 @@
 
         <div class="footer-bottom">
             <div class="brand logo">
-                <a href="#">
+                <a href="index.html">
                     <img src="assets/images/logo/Luxora.png" alt="Logo">
                 </a>
             </div>
@@ -228,6 +243,32 @@
 
     <!-- JavaScript -->
     <script src="js/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fadeElements = document.querySelectorAll(".fade-in");
+
+            const observer = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("in-view");
+                            observer.unobserve(entry.target); // Stop observing once visible
+                        }
+                    });
+                }, {
+                    threshold: 0.2
+                } // Trigger when 20% of the element is visible
+            );
+
+            // Observe all fade-in elements
+            fadeElements.forEach((el) => observer.observe(el));
+
+            // Fallback: If IntersectionObserver is not supported
+            if (!("IntersectionObserver" in window)) {
+                fadeElements.forEach((el) => el.classList.add("in-view"));
+            }
+        });
+    </script>
 </body>
 
 </html>
