@@ -451,7 +451,7 @@ footer {
 }
 .hero {
   min-height: 149vh;
-  background: url("../../assets/images/hero_banner.jpg") center/cover no-repeat;
+  background: url("../assets/images/hero_banner.jpg") center/cover no-repeat;
   background-attachment: fixed;
   position: relative;
 }
@@ -621,7 +621,7 @@ footer {
 }
 .about-banner {
   position: relative;
-  background: url("../../assets/images/about_banner.png") center/cover no-repeat;
+  background: url("../assets/images/about_banner.png") center/cover no-repeat;
   height: 548px;
   display: flex;
   justify-content: center;
